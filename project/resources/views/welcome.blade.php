@@ -10,16 +10,16 @@
                 <p class="lead mb-4">Find and subscribe to shuttle services between cities or request new routes that
                     match your commuting needs.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="shuttles.html" class="btn btn-light btn-lg px-4 me-md-2">
+                    <a href="{{route('shuttles')}}" class="btn btn-light btn-lg px-4 me-md-2">
                         <i class="bi bi-search me-2"></i>Find Shuttles
                     </a>
-                    <a href="register.html" class="btn btn-outline-light btn-lg px-4">
+                    <a href="{{route('register')}}" class="btn btn-outline-light btn-lg px-4">
                         <i class="bi bi-person-plus me-2"></i>Join Today
                     </a>
                 </div>
             </div>
             <div class="col-lg-6 mt-5 mt-lg-0 text-center">
-                <img src="/api/placeholder/600/400" alt="Bus illustration" class="img-fluid rounded shadow-lg">
+                <img src="https://i.ibb.co/Txwh11jf/travel.png" alt="Bus illustration" class="img-fluid rounded">
             </div>
         </div>
     </div>
@@ -188,7 +188,7 @@
                 <p class="lead mb-0">Join thousands of commuters who have simplified their regular travel.</p>
             </div>
             <div class="col-lg-4 mt-3 mt-lg-0 text-lg-end">
-                <a href="/register" class="btn btn-light btn-lg">Get Started Now</a>
+                <a href="{{route('register')}}" class="btn btn-light btn-lg">Get Started Now</a>
             </div>
         </div>
     </div>
