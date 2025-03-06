@@ -64,8 +64,9 @@
                             <label for="role" class="form-label">Account Type</label>
                             <select class="form-select" id="role" name="role" required>
                                 <option value="" selected disabled>Select account type</option>
-                                <option value="client">Regular User</option>
-                                <option value="company">Transport Company</option>
+                                @foreach($roles as $role)
+                                    <option value="{{ $role->id }}" {{ old('role') == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -100,7 +101,7 @@
     <script>
         document.getElementById('role').addEventListener('change', function () {
             const companyFields = document.getElementById('companyFields');
-            if (this.value === 'company') {
+            if (this.value === '2') {
                 companyFields.classList.remove('d-none');
             } else {
                 companyFields.classList.add('d-none');

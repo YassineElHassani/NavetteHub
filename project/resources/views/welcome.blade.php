@@ -10,7 +10,7 @@
                 <p class="lead mb-4">Find and subscribe to shuttle services between cities or request new routes that
                     match your commuting needs.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="{{route('shuttles')}}" class="btn btn-light btn-lg px-4 me-md-2">
+                    <a href="" class="btn btn-light btn-lg px-4 me-md-2">
                         <i class="bi bi-search me-2"></i>Find Shuttles
                     </a>
                     <a href="{{route('register')}}" class="btn btn-outline-light btn-lg px-4">

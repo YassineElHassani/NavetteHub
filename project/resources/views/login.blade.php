@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="text-center">
-                            <p class="mb-0">Don't have an account? <a href="{{route('register')}}"
+                            <p class="mb-0">Don't have an account? <a href="{{ route('register') }}"
                                     class="text-decoration-none">Register now</a></p>
                         </div>
                     </form>

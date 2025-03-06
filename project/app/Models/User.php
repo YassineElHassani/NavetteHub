@@ -8,17 +8,12 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-
-    protected $table = "users";
 
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role',
-        'company_name'
     ];
 
     protected $hidden = [
@@ -26,11 +21,38 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+
+    public function roles()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->belongsToMany(Role::class, 'user_role');
+    }
+    
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
+    
+    public function hasRole($role)
+    {
+        if (is_string($role)) {
+            return $this->roles->where('slug', $role)->count() > 0;
+        }
+        
+        return $role->intersect($this->roles)->count() > 0;
+    }
+    
+    public function assignRole($role)
+    {
+        if (is_string($role)) {
+            $role = Role::where('slug', $role)->firstOrFail();
+        }
+        
+        $this->roles()->syncWithoutDetaching($role);
+        
+        return $this;
     }
 }
